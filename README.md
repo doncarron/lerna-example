@@ -1,7 +1,7 @@
-// First run
+# First run
 lerna bootstrap
 
-// Example commands
+# Example commands
 npm run start --lerna:module=@mitchell/web.badge
 
 npm run build --lerna:module=@mitchell/web.badge
