@@ -1,0 +1,19 @@
+{
+    "name": "@mitchell/web.badge",
+    "version": "1.0.4",
+    "description": "I am a badge!",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "types": "dist/src/public_apis.d.ts",
+    "scripts": {
+        "build": "npm run export",
+        "build-copy": "copyfiles src/**/*.{tsx,ts,js,jsx} dist",
+        "export": "npm run clean && npm run export-js && npm run build-copy",
+        "export-js": "bili --format es,umd,umd-min --inline 0 --input src/public_apis.tsx",
+        "clean": "rimraf dist",
+        "serve": "num run start",
+        "pretty": "prettier --write src/**/*.{tsx,ts}",
+        "lint": "tslint src/**/*.{tsx,ts}",
+        "lint-fix": "tslint --fix src/**/*.{tsx,ts}"
+    }
+}

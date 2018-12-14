@@ -1,0 +1,127 @@
+{
+    "name": "lerna",
+    "config": {
+        "module": "nothing"
+    },
+    "scripts": {
+        "kill-dumb-dependency": "rimraf ./node_modules/@storybook/react/node_modules/babel-loader",
+        "build": "lerna run build --scope %npm_package_config_module% --stream --loglevel silent",
+        "pretty": "lerna run pretty --scope %npm_package_config_module% --stream --loglevel silent",
+        "lint": "lerna run lint --scope %npm_package_config_module% --stream --loglevel silent",
+        "lint:fix": "lerna run lint:fix --scope %npm_package_config_module% --stream --loglevel silent",
+        "test": "node scripts/test.js --env=jsdom --coverage",
+        "publish": "lerna publish --exact --skip-npm --skip-git",
+        "start": "npm-run-all -p kill-dumb-dependency storybook",
+        "storybook": "start-storybook -p 9001 -c .storybook"
+    },
+    "devDependencies": {
+        "@material-ui/core": "~1.0.0",
+        "@material-ui/icons": "~1.0.0",
+        "i18next": "~11.3.2",
+        "react-i18next": "~7.6.1",
+        "@babel/core": "7.0.0-beta.47",
+        "@babel/preset-env": "7.0.0-beta.47",
+        "@babel/preset-react": "7.0.0-beta.47",
+        "@storybook/addon-actions": "3.4.5",
+        "@storybook/addon-console": "1.0.0",
+        "@storybook/addon-knobs": "3.4.5",
+        "@storybook/addon-viewport": "3.4.5",
+        "@storybook/react": "3.4.5",
+        "@types/enzyme": "3.1.10",
+        "@types/enzyme-adapter-react-16": "1.0.2",
+        "@types/i18next": "8.4.3",
+        "@types/jest": "22.2.3",
+        "@types/mi.estimating": "1.0.6",
+        "@types/node": "9.6.4",
+        "@types/react": "16.3.14",
+        "@types/react-dom": "16.0.5",
+        "@types/react-i18next": "7.6.1",
+        "babel-loader": "8.0.0-beta.3",
+        "babel-plugin-emotion": "~9.1.2",
+        "babel-plugin-transform-optional-chaining": "7.0.0-beta.3",
+        "bili": "3.1.2",
+        "copyfiles": "2.0.0",
+        "enzyme": "3.3.0",
+        "enzyme-adapter-react-16": "1.1.1",
+        "i18next-parser": "1.0.0-beta14",
+        "i18next-xhr-backend": "1.5.1",
+        "jest": "22.4.3",
+        "lerna": "^2.11.0",
+        "node-sass-chokidar": "1.2.2",
+        "npm-run-all": "4.1.2",
+        "object-assign": "4.1.1",
+        "postcss-easy-import": "3.0.0",
+        "postcss-flexbugs-fixes": "3.2.0",
+        "postcss-scss": "1.0.5",
+        "prettier": "1.12.1",
+        "promise": "8.0.1",
+        "prop-types": "~15.6.1",
+        "raf": "3.4.0",
+        "react": "^16.3.2",
+        "react-dev-utils": "4.2.1",
+        "react-dom": "^16.3.2",
+        "rimraf": "2.6.2",
+        "rollup-plugin-babel": "4.0.0-beta.4",
+        "rollup-plugin-commonjs": "9.1.0",
+        "rollup-plugin-node-globals": "1.2.0",
+        "rollup-plugin-node-resolve": "3.3.0",
+        "rollup-plugin-peer-deps-external": "git+https://github.com/doncarron/rollup-plugin-peer-deps-external.git",
+        "rollup-plugin-typescript2": "0.12.0",
+        "sass-loader": "6.0.7",
+        "storybook-addon-intl": "2.3.0",
+        "storybook-addon-specifications": "2.1.2",
+        "ts-jest": "22.4.2",
+        "ts-loader": "3.5.0",
+        "tslint": "5.9.1",
+        "tslint-config-airbnb": "5.9.2",
+        "tslint-config-prettier": "1.13.0",
+        "tslint-react": "3.5.1",
+        "typescript": "2.8.3",
+        "whatwg-fetch": "2.0.3"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "**/(services|components)/*.{ts,tsx}",
+            "!**/dist/**/*"
+        ],
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text"
+        ],
+        "coverageDirectory": "coverage",
+        "globals": {
+            "ts-jest": {
+                "tsConfigFile": "tsconfig.json"
+            }
+        },
+        "moduleFileExtensions": [
+            "mjs",
+            "web.ts",
+            "ts",
+            "web.tsx",
+            "tsx",
+            "web.js",
+            "js",
+            "web.jsx",
+            "jsx",
+            "json",
+            "node"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
+        "testEnvironment": "jsdom",
+        "testMatch": [
+            "<rootDir>/**/tests/**/?(*.)(spec|test).ts?(x)"
+        ],
+        "testURL": "http://localhost",
+        "transform": {
+            "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        },
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+        ]
+    }
+}

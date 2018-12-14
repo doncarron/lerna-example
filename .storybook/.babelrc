@@ -1,0 +1,16 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "shippedProposals": true,
+      "targets": {
+        "browsers": [
+            "last 2 versions",
+            "not IE <= 10"
+        ],
+        "node": "current"
+      }
+    }],
+    "@babel/react"
+  ],
+  "plugins": ["transform-optional-chaining"]
+}
